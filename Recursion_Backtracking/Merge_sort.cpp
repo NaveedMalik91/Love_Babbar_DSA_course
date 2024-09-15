@@ -70,8 +70,6 @@ int main(int argc, char const *argv[])
 {
     vector<int> arr{22, -5, 3, 2, 6, -70, 100, 5, 30};
     int n = 9;
-    int start = 0;
-    int end = n - 1;
     cout << "Before sorting: ";
     for (int i = 0; i < n; i++)
     {
