@@ -186,6 +186,7 @@ Node* deleteNode(Node* root, int target){
 }
 
 
+
 };
 int main(int argc, char const *argv[])
 {
@@ -193,23 +194,23 @@ int main(int argc, char const *argv[])
     Node* root = NULL;
     obj.getdata(root);
     obj.level_order_traversal(root);
-    // int x;
-    // cout<<"Enter the value to search: ";
-    // cin>>x;
-    // while (x!=-1)
-    // {
-    //     bool ans = obj.searchvalue(root,x);
-    //     if (ans == true)
-    //     {
-    //         cout<<"Value found in tree"<<endl;
+    int x;
+    cout<<"Enter the value to search: ";
+    cin>>x;
+    while (x!=-1)
+    {
+        bool ans = obj.searchvalue(root,x);
+        if (ans == true)
+        {
+            cout<<"Value found in tree"<<endl;
             
-    //     }
-    //     else{
-    //         cout<<"Value Not found in tree"<<endl;
-    //         break;
-    //     }
-    //     cin>>x;
-    // }
+        }
+        else{
+            cout<<"Value Not found in tree"<<endl;
+            break;
+        }
+        cin>>x;
+    }
 
     int x;
     cout<<"Enter the value to delete: ";
@@ -224,10 +225,5 @@ int main(int argc, char const *argv[])
             cout<<"Nothing to delete"<<endl;
        }
     }
-    
-    
-    
-
-
     return 0;
 }
