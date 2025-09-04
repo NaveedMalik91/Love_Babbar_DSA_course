@@ -5,21 +5,15 @@ int main(int argc, char const *argv[])
    
     for (int i = 0; i < 6; i++)
     {
-        int k = 0;
-        for (int j  = 0; j < 11 ; j++)
+        for (int j = 0; j < 6-i; j++)
         {
-            if (j < 5-i)
-            {
-                cout<<"  ";
-            }
+            cout<<" ";
+        }
+        
+        for (int j  = 0; j < i+1 ; j++)
+        {
+           cout<<"* ";
 
-            else if(k < 2*i+1){
-                cout<<"* ";
-                k++;
-            }
-            else{
-                cout<<" ";
-            } 
         }
         cout<<endl;
         
