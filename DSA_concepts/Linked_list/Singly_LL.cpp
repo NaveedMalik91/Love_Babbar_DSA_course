@@ -29,7 +29,7 @@ public:
     {
         this->head = NULL;
     }
-    Singly_LL(Node *head)
+    Singly_LL(Node *head) //actualy there is no need is we are writing the insert functions
     {
         this->head = head;
     }
@@ -141,7 +141,7 @@ public:
         }
         
     }
-    //Deletion from Head
+    //Deletion from a position
     void delete_pos(int pos)
     {
         int length = getLength();
@@ -149,7 +149,7 @@ public:
         {
             cout<<"Linked list is empty"<<endl;
         }
-        //first node
+        //first node/head
         else if (pos == 1)
         {
             Node* temp = head;

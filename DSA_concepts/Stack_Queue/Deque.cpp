@@ -35,7 +35,7 @@ class deQueue
             arr[rear] = x;
         }
 
-        // circular nature
+        // maintain circular nature
         else if (rear == size - 1 && front != 0)
         {
             rear = 0;
@@ -67,7 +67,7 @@ class deQueue
         //circular nature maintain
         else if(front == 0 && rear!= size-1)
         {
-            front = size-1;
+            front = size-1; //move  FRONT to last
             arr[front] = x;
         }
         //not empty
@@ -129,10 +129,10 @@ class deQueue
            
         }
         //circular nature
-        else if(rear == 0)
+        else if(rear == 0) //when the element is at first and we pop. this case the rear should move to last
         {
             arr[rear] = -1;
-            rear = size-1;
+            rear = size-1; //move rear backwards i.e. to end (anticlockwise)
         }
 
         //normally

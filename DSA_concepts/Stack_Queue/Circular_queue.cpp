@@ -35,8 +35,8 @@ public:
             arr[rear] = x;
         }
 
-        // circular nature
-        else if (rear == size - 1 && front != 0)
+        // maintain circular nature
+        else if (rear == size - 1 && front != 0) //first pe position khali hai
         {
             rear = 0;
             arr[rear] = x;
@@ -66,7 +66,7 @@ public:
             rear = -1;
         }
 
-        // circular nature
+        // maintain circular nature
         // popped element is last
         else if (front == size - 1)
         {
@@ -97,7 +97,7 @@ public:
             cout << arr[i] << " ";
             if (i == rear)
                 break;
-            i = (i + 1) % size;
+            i = (i + 1) % size; //updates index as well as moving to first index if needed.
         }
         cout << endl;
     }
