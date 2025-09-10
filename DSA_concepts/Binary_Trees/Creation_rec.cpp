@@ -33,11 +33,6 @@ public:
     {
         this->root = NULL;
     }
-    Node* getroot()
-    {
-        return root;
-    }
-
     /*Creation of tree recursive*/
     Node *insert()
     {
@@ -48,14 +43,14 @@ public:
         if (value == -1)
             return nullptr;
 
-        Node *newNode = new Node(value);
+        Node *root = new Node(value);
         cout << "Enter left child of " << value << endl;
-        newNode->left = insert();
+        root->left = insert();
 
         cout << "Enter right child of " << value << endl;
-        newNode->right = insert();
+        root->right = insert();
 
-        return newNode;
+        return root;
     }
 
     /*Printing the tree*/

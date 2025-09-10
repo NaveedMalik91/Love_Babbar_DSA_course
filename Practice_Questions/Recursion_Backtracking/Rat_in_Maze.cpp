@@ -21,6 +21,7 @@ void rat_in_maze(vector<vector<int>> &maze,int rows, int col, int srcx, int srcy
             cout<<ans<<endl; 
             return;
     }
+
     //Move up from current position
     int newx = srcx-1;
     int newy = srcy;
@@ -95,7 +96,8 @@ int main()
     int srcx = 0;
     int srcy = 0;
     string ans = "";
-    vector<vector<bool>> visited(rows,vector<bool>(col,false));
+    //create a 2D-vector with rows and cols and having all cols filled with false 
+    vector<vector<bool>> visited(rows, vector<bool> (col,false));
     if (maze[srcx][srcy] == 0)
     {
         cout<<"No path exists"<<endl;
