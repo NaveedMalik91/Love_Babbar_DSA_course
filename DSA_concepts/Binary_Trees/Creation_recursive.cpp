@@ -120,6 +120,41 @@ public:
             }
         }
     }
+
+    void bottom_view(Node *root)
+    {
+        map<int, int> mp;
+        queue<pair<Node *, int>> q;
+
+        q.push(make_pair(root, 0));
+        while (!q.empty())
+        {
+            pair<Node *, int> temp = q.front();
+            q.pop();
+
+            Node *front = temp.first;
+            int level = temp.second;
+
+            // push the nodes or update previous at this level inmap
+            
+            mp[level] = front->data;
+            
+            if (front->left != NULL)
+            {
+                q.push(make_pair(front->left,level-1));
+            }
+            if (front->right != NULL)
+            {
+                q.push(make_pair(front->right,level+1));
+            }
+        }
+
+        //print
+        for(auto i:mp){
+            cout<<i.second<<" ";
+        }
+        cout<<endl;
+    }
 };
 int main()
 {
@@ -145,5 +180,7 @@ int main()
     cout<<endl;
     cout << "Level Traversal is: ";
     obj.level_order(root);
+
+    obj.bottom_view(root);
     return 0;
 }

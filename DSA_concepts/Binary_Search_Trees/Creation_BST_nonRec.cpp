@@ -16,11 +16,11 @@ class Node{
 };
 class BST{
     private:
-    int val;
+    Node* root;
     public:
-    BST(){}
-    BST(int val){
-        this->val = val;
+    
+    BST(){
+        this->root = NULL;
     }
     Node* createBST(Node* root,int data){
         if (root==NULL)
@@ -35,6 +35,7 @@ class BST{
         else if(data < root->val){
             root->left = createBST(root->left,data);
         }
+        return root;
         
 
 
@@ -88,6 +89,7 @@ Node* maxN(Node* root){
     {
         temp = temp->right;
     }
+    cout<<"Max value = "<<endl;
     return temp;
     
 }
@@ -101,6 +103,7 @@ Node* minN(Node* root){
     {
         temp = temp->left;
     }
+    cout<<"Min value = "<<temp->val<<endl;
     return temp;
     
 }
@@ -133,6 +136,8 @@ Node* deleteNode(Node* root, int target){
         return NULL;
     }
 
+    //solve 1-case
+
     //search target
     if (root->val == target)
     {
@@ -163,17 +168,19 @@ Node* deleteNode(Node* root, int target){
         //case4-> left and right both are non null
         else{
 
-            //get the maximum value from left subtree and replace the target with maximum value
+            //get the maximum value from left subtree
            Node* maxi = maxN(root);
+            //replace the target with maximum value
            root->val = maxi->val;
 
-           //delete the maximum node from the tree
-           //and attach the new subtree in the left of tree
+           //delete the maximum node from the tree i.e. maxi->value
            root->left = deleteNode(root->left,maxi->val);
            return root;
 
         }
     }
+
+    //Recursion
     else if(root->val > target){
         root->left = deleteNode(root->left,target);
     }
@@ -197,7 +204,7 @@ int main(int argc, char const *argv[])
     int x;
     cout<<"Enter the value to search: ";
     cin>>x;
-    while (x!=-1)
+    while (x!=-2)
     {
         bool ans = obj.searchvalue(root,x);
         if (ans == true)
@@ -212,15 +219,15 @@ int main(int argc, char const *argv[])
         cin>>x;
     }
 
-    int x;
+    int y;
     cout<<"Enter the value to delete: ";
-    cin>>x;
-    while (x!=-1)
+    cin>>y;
+    while (y!=-3)
     {
-       obj.deleteNode(root,x);
+       obj.deleteNode(root,y);
        cout<<"Value deleted successfully"<<endl;
        obj.level_order_traversal(root);
-       cin>>x;
+       cin>>y;
        if(root == NULL){
             cout<<"Nothing to delete"<<endl;
        }
